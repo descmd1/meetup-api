@@ -71,7 +71,7 @@ io.on('connection', (socket) => {
     // If the message has a replyTo field, populate it before emitting
     if (messageData.replyTo) {
       try {
-        const Message = require('./models/Message');
+        const Message = require('./models/Message.js');
         const populatedMessage = await Message.findById(messageData._id)
           .populate({
             path: 'replyTo',
