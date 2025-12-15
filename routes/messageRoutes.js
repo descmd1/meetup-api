@@ -1,15 +1,3 @@
-// const express = require('express');
-// const { sendMessage, getMessages } = require('../controllers/messageController.js');
-// const protect = require('../middlewares/authMiddleware.js');
-// const router = express.Router();
-
-// router.post('/', protect, sendMessage);
-// router.get('/:userId', protect, getMessages);
-
-// module.exports = router;
-
-
-
 const express = require('express');
 const router = express.Router();
 const protect = require('../middlewares/authMiddleware');

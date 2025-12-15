@@ -1,38 +1,3 @@
-// const Message = require('../models/Message.js');
-
-//  const sendMessage = async (req, res) => {
-//   const { receiver, text } = req.body;
-//   try {
-//     const message = await Message.create({
-//       sender: req.user._id,
-//       receiver,
-//       text
-//     });
-//     res.status(201).json(message);
-//   } catch (err) {
-//     res.status(500).json({ message: err.message });
-//   }
-// };
-
-// const getMessages = async (req, res) => {
-//   const { userId } = req.params;
-//   try {
-//     const messages = await Message.find({
-//       $or: [
-//         { sender: req.user._id, receiver: userId },
-//         { sender: userId, receiver: req.user._id }
-//       ]
-//     }).sort({ timestamp: 1 });
-//     res.json(messages);
-//   } catch (err) {
-//     res.status(500).json({ message: err.message });
-//   }
-// };
-
-// module.exports = {sendMessage, getMessages}
-
-
-
 const Message = require('../models/Message');
 
 const sendMessage = async (req, res) => {
@@ -134,22 +99,6 @@ const toggleLike = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
-
-// const editMessage = async (req, res) => {
-//   const { messageId, newText } = req.body;
-//   try {
-//     const message = await Message.findOne({ _id: messageId, sender: req.user._id });
-//     if (!message) return res.status(404).json({ message: 'Not found or not yours' });
-
-//     message.text = newText;
-//     message.edited = true;
-//     await message.save();
-
-//     res.json(message);
-//   } catch (err) {
-//     res.status(500).json({ message: err.message });
-//   }
-// };
 
 const editMessage = async (req, res) => {
   const { messageId, newText } = req.body;
